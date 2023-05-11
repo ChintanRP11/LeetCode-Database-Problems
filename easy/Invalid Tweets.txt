@@ -1,0 +1,10 @@
+/* 
+https://leetcode.com/problems/invalid-tweets/
+
+Write an SQL query to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is strictly greater than 15.
+Return the result table in any order.
+*/
+
+SELECT teacher_id, COUNT(DISTINCT(subject_id)) AS cnt
+FROM teacher
+GROUP BY teacher_id
