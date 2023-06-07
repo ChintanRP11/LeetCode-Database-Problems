@@ -1,0 +1,13 @@
+/*
+
+https://leetcode.com/problems/employees-earning-more-than-their-managers/description/
+
+Write an SQL query to find the employees who earn more than their managers.
+
+*/
+
+SELECT e1.name as Employee
+FROM employee e1
+JOIN employee e2
+ON e1.managerId = e2.id
+WHERE e1.salary > e2.salary

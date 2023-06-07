@@ -1,0 +1,27 @@
+/*
+
+https://leetcode.com/problems/customers-who-never-order/description/
+
+Write an SQL query to report all customers who never order anything.
+
+*/
+
+SELECT c.name as Customers
+FROM customers c
+WHERE c.id not in
+( SELECT c.id
+FROM customers c
+INNER JOIN orders o
+ON c.id = o. customerId )
+
+
+SELECT c.name as Customers
+FROM customers c
+LEFT JOIN orders o
+ON c.id = o. customerId
+WHERE o.id IS NULL
+
+
+SELECT name AS Customers
+FROM Customers 
+WHERE id NOT IN(SELECT customerId From Orders)

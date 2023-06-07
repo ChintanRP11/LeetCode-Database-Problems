@@ -1,0 +1,14 @@
+/*
+
+https://leetcode.com/problems/delete-duplicate-emails/description/
+
+Write an SQL query to delete all the duplicate emails, keeping only one unique email with the smallest id. Note that you are supposed to write a DELETE statement and not a SELECT one.
+
+*/
+
+DELETE from Person 
+where id not in (
+    select * from (select MIN(id)
+    from Person
+    group by email) as tmp
+)
